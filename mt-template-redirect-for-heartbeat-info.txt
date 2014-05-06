@@ -1,0 +1,12 @@
+<Files ~ "^\.(htaccess|htpasswd)$">
+deny from all
+</Files>
+<mt:WebsiteURL setvar="websiteurl">
+<mt:BlogEntryCount setvar="blogentrycount">
+<mt:Categories>
+Redirect permanent <mt:BlogURL replace="$websiteurl","/">archives/category/category<mt:CategoryID>.html <mt:CategoryArchivelink>
+</mt:Categories>
+<mt:Entries lastn="$blogentrycount">
+Redirect permanent <mt:BlogURL replace="$websiteurl","/">archives/entry/entry<mt:EntryID>.html <mt:EntryPermalink>
+</mt:Entries>
+order deny,allow
